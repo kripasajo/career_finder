@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Career Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="homePage" class="container">
+    <h1>Welcome to Tech Career Finder</h1>
+    <p>Answer a few questions, and we'll suggest career paths based on your interests!</p>
+    <button id="startQuizButton" onclick="startQuiz()">Start Quiz</button>
+  </div>
+
+  <div id="quizPage" class="container hidden">
+    <form id="quizForm"></form>
+    <button id="nextButton" class="hidden" onclick="nextQuestion()">Next</button>
+  </div>
+
+  <div id="resultPage" class="container hidden">
+    <h2>Your Career Recommendations</h2>
+    <div id="careerResults"></div>
+    <button onclick="restartQuiz()">Restart Quiz</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
