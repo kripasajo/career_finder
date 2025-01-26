@@ -1,59 +1,81 @@
 // jobTrends.js
-
 // Function to fetch and display job trends based on job title
 function showJobTrends(jobTitle) {
     const trendsContainer = document.getElementById('jobTrendsContainer');
     trendsContainer.innerHTML = 'Loading job trends...';
+    
+    // Ensure trendsContainer is visible
+    trendsContainer.style.display = 'block'; // Make sure it is visible
 
-    // Construct the API URL (replace YOUR_API_KEY with your actual Indeed API key)
-    const apiUrl = `https://api.indeed.com/ads/apisearch?publisher=YOUR_API_KEY&q=${jobTitle}&l=&v=2`;
-
-    // Fetch job data from the Indeed API
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            // Clear previous content
-            trendsContainer.innerHTML = `<h3>Job Trends for ${jobTitle}</h3>`;
-
-            // Check if we received valid data
-            if (data.results && data.results.length > 0) {
-                const jobCount = data.totalResults;
-                const jobs = data.results;
-
-                // Display job openings count
-                const openings = document.createElement('p');
-                openings.textContent = `Total Job Openings: ${jobCount}`;
-                trendsContainer.appendChild(openings);
-
-                // Display salary data if available
-                const salaryData = jobs[0]?.estimatedSalary;
-                if (salaryData) {
-                    const salaryInfo = document.createElement('p');
-                    salaryInfo.textContent = `Estimated Salary Range: ${salaryData.minimum} - ${salaryData.maximum}`;
-                    trendsContainer.appendChild(salaryInfo);
-                } else {
-                    const noSalaryInfo = document.createElement('p');
-                    noSalaryInfo.textContent = 'Salary information not available for this job role.';
-                    trendsContainer.appendChild(noSalaryInfo);
+    // Simulating a successful response with mock data
+    const mockData = {
+        totalResults: 5000,
+        results: [
+            {
+                jobtitle: "Backend Developer",
+                company: "Tech Solutions",
+                location: "Remote",
+                estimatedSalary: {
+                    minimum: 60000,
+                    maximum: 90000
                 }
-
-                // Display job listings for further insights
-                const jobList = document.createElement('ul');
-                jobs.forEach(job => {
-                    const jobItem = document.createElement('li');
-                    jobItem.textContent = `${job.jobtitle} at ${job.company} in ${job.location}`;
-                    jobList.appendChild(jobItem);
-                });
-                trendsContainer.appendChild(jobList);
-            } else {
-                trendsContainer.innerHTML += 'No job trends available for this role.';
+            },
+            {
+                jobtitle: "Full Stack Engineer",
+                company: "Innovate Inc.",
+                location: "San Francisco, CA",
+                estimatedSalary: {
+                    minimum: 80000,
+                    maximum: 120000
+                }
+            },
+            {
+                jobtitle: "Data Scientist",
+                company: "AI Labs",
+                location: "New York, NY",
+                estimatedSalary: {
+                    minimum: 95000,
+                    maximum: 140000
+                }
             }
-        })
-        .catch(error => {
-            trendsContainer.innerHTML = 'Failed to load job trends.';
-            console.error('Error fetching job trends:', error);
-        });
+        ]
+    };
+
+    // Simulate the API response handling
+    const data = mockData;
+
+    trendsContainer.innerHTML = `<h3>Job Trends for ${jobTitle}</h3>`;
+
+    const jobCount = data.totalResults;
+    const jobs = data.results;
+
+    // Display job openings count
+    const openings = document.createElement('p');
+    openings.textContent = `Total Job Openings: ${jobCount}`;
+    trendsContainer.appendChild(openings);
+
+    // Display salary data if available
+    const salaryData = jobs[0]?.estimatedSalary;
+    if (salaryData) {
+        const salaryInfo = document.createElement('p');
+        salaryInfo.textContent = `Estimated Salary Range: ${salaryData.minimum} - ${salaryData.maximum}`;
+        trendsContainer.appendChild(salaryInfo);
+    } else {
+        const noSalaryInfo = document.createElement('p');
+        noSalaryInfo.textContent = 'Salary information not available for this job role.';
+        trendsContainer.appendChild(noSalaryInfo);
+    }
+
+    // Display job listings for further insights
+    const jobList = document.createElement('ul');
+    jobs.forEach(job => {
+        const jobItem = document.createElement('li');
+        jobItem.textContent = `${job.jobtitle} at ${job.company} in ${job.location}`;
+        jobList.appendChild(jobItem);
+    });
+    trendsContainer.appendChild(jobList);
 }
+
 
 // Function to display quiz results and suggest careers
 function showResults() {
@@ -92,7 +114,9 @@ function showResults() {
     // Add a button to show job trends for the selected career
     const jobTrendsButton = document.createElement('button');
     jobTrendsButton.textContent = "Show Job Trends";
-    jobTrendsButton.onclick = () => showJobTrends(recommendedCareers[0]); // Call the function with the first suggested career
+    jobTrendsButton.addEventListener('click', () => {
+        showJobTrends(recommendedCareers[0]); // Ensure this passes a valid career title
+    }); // Call the function with the first suggested career
     document.getElementById("resultPage").appendChild(jobTrendsButton);
 }
 
