@@ -209,6 +209,6 @@ function restartQuiz() {
 
 // Function to redirect to the Job Trends page
 function viewJobTrends() {
-    window.location.href = 'jobtrends.html';
+    window.location.href = 'index.html';
 }
 

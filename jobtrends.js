@@ -1,11 +1,11 @@
 // jobTrends.js
 
+// Function to fetch and display job trends based on job title
 function showJobTrends(jobTitle) {
-    // Display a loader while data is being fetched
     const trendsContainer = document.getElementById('jobTrendsContainer');
     trendsContainer.innerHTML = 'Loading job trends...';
 
-    // Construct API URL based on job title (replace with your Indeed API URL and key)
+    // Construct the API URL (replace YOUR_API_KEY with your actual Indeed API key)
     const apiUrl = `https://api.indeed.com/ads/apisearch?publisher=YOUR_API_KEY&q=${jobTitle}&l=&v=2`;
 
     // Fetch job data from the Indeed API
@@ -25,8 +25,8 @@ function showJobTrends(jobTitle) {
                 openings.textContent = `Total Job Openings: ${jobCount}`;
                 trendsContainer.appendChild(openings);
 
-                // If salary data is available, display it (or any other relevant data you want to show)
-                const salaryData = jobs[0].estimatedSalary;
+                // Display salary data if available
+                const salaryData = jobs[0]?.estimatedSalary;
                 if (salaryData) {
                     const salaryInfo = document.createElement('p');
                     salaryInfo.textContent = `Estimated Salary Range: ${salaryData.minimum} - ${salaryData.maximum}`;
@@ -37,7 +37,7 @@ function showJobTrends(jobTitle) {
                     trendsContainer.appendChild(noSalaryInfo);
                 }
 
-                // Display job listings for further insights (optional)
+                // Display job listings for further insights
                 const jobList = document.createElement('ul');
                 jobs.forEach(job => {
                     const jobItem = document.createElement('li');
@@ -55,13 +55,7 @@ function showJobTrends(jobTitle) {
         });
 }
 
-
-
-
-
-
-
-// After quiz result is displayed
+// Function to display quiz results and suggest careers
 function showResults() {
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("resultPage").style.display = "block";
@@ -98,13 +92,11 @@ function showResults() {
     // Add a button to show job trends for the selected career
     const jobTrendsButton = document.createElement('button');
     jobTrendsButton.textContent = "Show Job Trends";
-    jobTrendsButton.onclick = () => showJobTrends(recommendedCareers[0]); // Call the function with the job title (first suggestion)
-    
+    jobTrendsButton.onclick = () => showJobTrends(recommendedCareers[0]); // Call the function with the first suggested career
     document.getElementById("resultPage").appendChild(jobTrendsButton);
 }
 
-
-
+// Event listener for DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     const jobTitleInput = document.getElementById('jobTitle');
     const searchButton = document.getElementById('searchButton');
@@ -125,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to fetch job trends (replace with your API logic)
+    // Function to fetch job trends (example simulation, replace with real API logic)
     function fetchJobTrends(jobTitle) {
         jobTrendsContainer.innerHTML = `<p>Loading job trends for "${jobTitle}"...</p>`;
 
