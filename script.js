@@ -99,6 +99,7 @@ const quizQuestions = [
             { text: "By hands-on practice with hardware and networking", value: "hands-on" }
         ]
     }
+    
 ];
 
 // Current question index and user responses
