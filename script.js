@@ -17,15 +17,7 @@ const quizQuestions = [
             { text: "Hands-on technical work", value: "hands-on" }
         ]
     },
-    {
-        question: "Which of these programming languages are you most comfortable with (or want to learn)?",
-        answers: [
-            { text: "Python, Java, or C++", value: "problem-solving" },
-            { text: "JavaScript, HTML, CSS, React", value: "creativity" },
-            { text: "SQL, R, or other data-analysis languages", value: "data-analysis" },
-            { text: "No programming language, but interested in learning", value: "hands-on" }
-        ]
-    },
+
     {
         question: "How do you prefer to solve problems?",
         answers: [
@@ -90,15 +82,7 @@ const quizQuestions = [
             { text: "Setting up and managing network configurations and hardware", value: "hands-on" }
         ]
     },
-    {
-        question: "How do you like to approach learning new technologies?",
-        answers: [
-            { text: "Through hands-on coding and building projects", value: "problem-solving" },
-            { text: "By experimenting with design and user interaction", value: "creativity" },
-            { text: "By diving into datasets and analyzing them", value: "data-analysis" },
-            { text: "By hands-on practice with hardware and networking", value: "hands-on" }
-        ]
-    }
+    
 ];
 
 // Current question index and user responses
@@ -187,3 +171,44 @@ function restartQuiz() {
     document.getElementById("resultPage").style.display = "none";
     document.getElementById("homePage").style.display = "block";
 }
+
+
+
+
+//new code
+// Function to display results and show the "View Job Trends" button
+function displayResults(result) {
+    const resultPage = document.getElementById('resultPage');
+    const careerResults = document.getElementById('careerResults');
+    const viewJobTrendsButton = document.getElementById('viewJobTrendsButton');
+
+    // Display the result page and the user's result
+    resultPage.style.display = 'block';
+    careerResults.textContent = `Your recommended career: ${result}`;
+
+    // Show the "View Job Trends" button
+    viewJobTrendsButton.style.display = 'inline-block';
+
+    // Store the result in local storage for use in the job trends page
+    localStorage.setItem('careerResult', result);
+}
+
+// Function to restart the quiz
+function restartQuiz() {
+    // Reset quiz logic here
+    const resultPage = document.getElementById('resultPage');
+    const homePage = document.getElementById('homePage');
+    const viewJobTrendsButton = document.getElementById('viewJobTrendsButton');
+
+    resultPage.style.display = 'none';
+    homePage.style.display = 'block';
+
+    // Hide the "View Job Trends" button when restarting the quiz
+    viewJobTrendsButton.style.display = 'none';
+}
+
+// Function to redirect to the Job Trends page
+function viewJobTrends() {
+    window.location.href = 'jobtrends.html';
+}
+

@@ -1,77 +1,123 @@
-/* General styles */
 body {
     font-family: Arial, sans-serif;
+    background-image: url('2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f9;
-  }
-  
-  .container {
+    color: white;
     text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    max-width: 600px;
-    width: 90%;
-  }
-  
-  h1, h2 {
-    color: #333;
-  }
-  
-  p {
-    color: #666;
-  }
-  
-  button {
+}
+
+#homePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+button {
     background-color: #4CAF50;
     color: white;
-    border: none;
-    padding: 10px 20px;
+    padding: 15px 32px;
     font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
     border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#quizPage {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.7); /* Slight transparency for contrast */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#quizForm h2 {
+    font-size: 2rem;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+label:hover {
+    background-color: #333;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#nextButton {
+    background-color: #2196F3;
+    padding: 15px 32px;
+    font-size: 16px;
+    border: none;
     cursor: pointer;
     margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  /* Form styles */
-  form h2 {
-    color: #333;
-  }
-  
-  form input[type="radio"] {
-    margin-right: 10px;
-  }
-  
-  form label {
-    display: block;
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  #careerResults ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #careerResults li {
-    background-color: #f0f8ff;
-    padding: 10px;
-    margin: 5px 0;
     border-radius: 5px;
-    font-size: 16px;
-  }
+}
+
+#resultPage {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#careerResults {
+    font-size: 1.5rem;
+}
+
+
+#jobTrendsContainer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
   
