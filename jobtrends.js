@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to fetch job trends (example simulation, replace with real API logic)
+    // Function to fetch job trends (example simulation, replace with real API logic).
     function fetchJobTrends(jobTitle) {
         jobTrendsContainer.innerHTML = `<p>Loading job trends for "${jobTitle}"...</p>`;
 

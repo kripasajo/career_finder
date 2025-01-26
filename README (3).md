@@ -47,7 +47,7 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1][Screenshot 2025-01-26 110343](https://github.com/user-attachments/assets/3bc2c2ee-8866-4b8a-b19a-81a7dac9622e)
+![Screenshot1]![Screenshot 2025-01-26 110343](https://github.com/user-attachments/assets/3bc2c2ee-8866-4b8a-b19a-81a7dac9622e)
 This shows the home page which prompts the user to start a quiz by clicking 'start quiz' button.
 
 
